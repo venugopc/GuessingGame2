@@ -73,6 +73,7 @@ alert('Hi ' + user + ' It took ' + numtimes + ' guesses until you got it ');
 
 var birds = ["eagle", "kingfisher", "peacock", "parrot", "woodpecker","swift"];
 var chance = 1;
+var i = 0;
 for (i = 0; i < birds.length; i++) {
     alert('This is your guess number ' + chance + '.');
     var fav_bird = prompt('What is one of my favorite birds?');
