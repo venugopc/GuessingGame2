@@ -1,82 +1,35 @@
 "use strict";
-var user = prompt('what is your name?');
+var user = getUserName();
 console.log('user name:', user);
-if (user === null) {
-    user = 'Guest';
-}
+
 alert('Hi there ' + user + ' I\'m going to ask you few questions.');
 var correctanswers = 0;
 var totalquestions = 0;
 var Question1 = prompt(' My favorite color is yellow. Please answer yes/no Or y/n');
 console.log('user answer1:', Question1);
-totalquestions++;
-if (Question1 != null && Question1 != '') {
-    if (Question1.toUpperCase() === 'Y' || Question1.toUpperCase() === 'YES') {
-        alert('You are correct. Lets move on 4 more to go');
-        correctanswers++;
-    }
-    else if (Question1.toUpperCase() === 'N' || Question1.toUpperCase() === 'NO') {
-        alert('You are wrong. Lets try another question, we have 4 more. All the best!!');
-    }
-}
-else {
-    alert('Please answer only in yes/no Or y/n. All the best!!');
-}
+totalquestions++;   
+verifyAnswer(Question1,4);
+
 
 var Question2 = prompt(' My favorite Car is Duster.Please answer yes/no Or y/n');
 console.log('user answer2:', Question2);
 totalquestions++;
-if (Question2.toUpperCase() === 'Y' || Question2.toUpperCase() === 'YES') {
-    alert('You are correct. Lets move on we have 3 more');
-    correctanswers++;
-}
-else if (Question2.toUpperCase() === 'N' || Question2.toUpperCase() === 'NO') {
-    alert('You are wrong. Lets try another question, we have 3 more. All the best!!');
-}
-else {
-    alert('Please answer only in yes/no Or y/n. All the best!!');
-}
+verifyAnswer(Question2,3)
 
 var Question3 = prompt(' My favorite Book is Peshwa.Please answer yes/no Or y/n');
 console.log('user answer3:', Question3);
 totalquestions++;
-if (Question3.toUpperCase() === 'N' || Question3.toUpperCase() === 'NO') {
-    alert('You are correct. Lets move on we have 2 more');
-    correctanswers++;
-}
-else if (Question3.toUpperCase() === 'Y' || Question3.toUpperCase() === 'YES') {
-    alert('You are wrong. Lets try another question, we have 2 more. All the best!!');
-}
-else {
-    alert('Please answer only in yes/no Or y/n. All the best!!');
-}
+verifyAnswer(Question3,2)
+
 var Question4 = prompt(' My favorite Cartoon character is Tom.Please answer yes/no Or y/n');
 console.log('user answer4:', Question4);
 totalquestions++;
-if (Question4.toUpperCase() === 'Y' || Question4.toUpperCase() === 'YES') {
-    alert('You are correct. Lets move on we have one more');
-    correctanswers++;
-}
-else if (Question4.toUpperCase() === 'N' || Question4.toUpperCase() === 'NO') {
-    alert('You are wrong. Lets try another question, we have 1 more. All the best!!');
-}
-else {
-    alert('Please answer only in yes/no Or y/n. All the best!!');
-}
+verifyAnswer(Question4,1)
 
 var Question5 = prompt(' My favorite sport is cricket.Please answer yes/no Or y/n');
 console.log('user answer5:', Question5);
 totalquestions++;
-if (Question5.toUpperCase() === 'N' || Question5.toUpperCase() === 'NO') {
-    alert('You are correct. We are done with the questions. Let me provide more details about me in my profile');
-    correctanswers++;
-}
-else if (Question5.toUpperCase() === 'Y' || Question5.toUpperCase() === 'YES') {
-    alert('You are wrong. Lets try another question, Let me provide more details about me in my profile');
-}
-else {
-    alert('Please answer only in yes/no Or y/n. Let me provide more details about me in my profile');
-}
+verifyAnswer(Question5,0)
 
 if (parseInt(correctanswers) > 0) {
     alert('Hi ' + user + ' ! You have guessed ' + correctanswers + ' correctly out of ' + totalquestions  + ', ' + (correctanswers / totalquestions * 100) + ' % of your guesses are correct.');
@@ -137,3 +90,42 @@ for (i = 0; i < birds.length; i++) {
 
 console.log('question 8:', birds);
 alert('Possible answers are ' + birds + '.');
+
+
+/* Function declarations */
+function getUserName() {
+    var name = prompt("What's your name?")   
+    while (name === null || name === "") {
+        var name = prompt('Please enter your name');             
+    }
+    return name;
+}
+
+/* Check answer */
+function verifyAnswer(Question, QuestionLeft) {
+    if (Question != null && Question != '') {
+        if (Question.toUpperCase() === 'Y' || Question.toUpperCase() === 'YES') {
+            if (QuestionLeft = 0) {
+                alert('You are correct. We are done with the questions. Let me provide more details about me in my profile');
+            }
+            else {
+                alert('You are correct. Lets move on'|| QuestionLeft ||' more to go');
+            }
+            correctanswers++;
+        }
+        else if (Question.toUpperCase() === 'N' || Question.toUpperCase() === 'NO') {
+            if (QuestionLeft = 0) {
+                alert('You are wrong. Lets try another question, Let me provide more details about me in my profile');
+            } else {
+                alert('You are wrong. Lets try another question, we have '||QuestionLeft ||'more. All the best!!');
+            }
+        }
+    }
+    else {
+        if (QuestionLeft = 0) {
+            alert('Please answer only in yes/no Or y/n. Let me provide more details about me in my profile');
+        } else {
+            alert('Please answer only in yes/no Or y/n. All the best!!');
+        }
+    }
+}
