@@ -15,7 +15,7 @@ body {
   font-size: 20px;
   font-style: italic; 
   text-align: center;
-  background: gray;
+  background: rgb(177, 174, 174);
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -62,6 +62,6 @@ body {
 .footer {
   padding: 20px;
   text-align: center;
-  background: gray ;
+  background: rgb(177, 174, 174);
   margin-top: 20px;
 }
